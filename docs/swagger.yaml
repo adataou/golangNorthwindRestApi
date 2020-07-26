@@ -1,0 +1,210 @@
+definitions:
+  product.Product:
+    properties:
+      category:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      listPrice:
+        type: number
+      productCode:
+        type: string
+      productName:
+        type: string
+      standardCost:
+        type: number
+    type: object
+  product.ProductList:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/product.Product'
+        type: array
+      totalRecords:
+        type: integer
+    type: object
+  product.ProductTop:
+    properties:
+      id:
+        type: integer
+      productName:
+        type: string
+      venditos:
+        type: number
+    type: object
+  product.ProductTopResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/product.ProductTop'
+        type: array
+      totalVentas:
+        type: number
+    type: object
+  product.getAddProductRequest:
+    properties:
+      category:
+        type: string
+      description:
+        type: string
+      listPrice:
+        type: string
+      productCode:
+        type: string
+      productName:
+        type: string
+      standardCost:
+        type: string
+    type: object
+  product.getProductsRequest:
+    properties:
+      limit:
+        type: integer
+      offset:
+        type: integer
+    type: object
+  product.updateProductRequest:
+    properties:
+      category:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      listPrice:
+        type: number
+      productCode:
+        type: string
+      productName:
+        type: string
+      standardCost:
+        type: number
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license: {}
+  title: Northwind API
+  version: "1.0"
+paths:
+  /products/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Product Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+      summary: delete Product
+      tags:
+      - Product
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/product.getAddProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+      summary: insert Product
+      tags:
+      - Product
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/product.updateProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: interger
+      summary: update Product
+      tags:
+      - Product
+  /products/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Product Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/product.Product'
+      summary: Product by id
+      tags:
+      - Product
+  /products/bestSellers:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/product.ProductTopResponse'
+      summary: Best Sellers
+      tags:
+      - Product
+  /products/paginated:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/product.getProductsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/product.ProductList'
+      summary: List of the  Products
+      tags:
+      - Product
+swagger: "2.0"

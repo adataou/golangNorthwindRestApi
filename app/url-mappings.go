@@ -1,17 +1,37 @@
 package app
 
 import (
+	"database/sql"
+	"golangNorthwindRestApi/helper"
 	"golangNorthwindRestApi/product"
+	"golangNorthwindRestApi/user"
 
-	"github.com/go-chi/chi"
+	_ "golangNorthwindRestApi/docs"
+
+	httpSwagger "github.com/swaggo/http-swagger" // http-swagger middleware
 )
 
-func mapUrls() {
+var (
+	productService product.Service
+)
+
+func mapUrls(databaseConnection *sql.DB) {
+
 	var (
-		productService product.Service
+		productRepository = product.NewRepository(databaseConnection)
 	)
+	productService = product.NewService(productRepository)
 
-	router := chi.NewRouter()
-
+	router.Use(helper.GetCors().Handler)
 	router.Mount("/products", product.MakeHttpHandler(productService))
+
+	router.Get("/swagger/*", httpSwagger.Handler(
+		httpSwagger.URL("../swagger/doc.json"),
+	))
+}
+
+func mapUrls_mvc() {
+
+	ginRouter.GET("/ping", user.Ping)
+	ginRouter.POST("/users", user.Create)
 }

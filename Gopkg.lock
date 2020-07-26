@@ -2,12 +2,108 @@
 
 
 [[projects]]
+  digest = "1:38beba9afeb613a2a1504b118165c1a6caea134160c969980427952c7a475f44"
+  name = "github.com/KyleBanks/depth"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "fec4dc38699e903ea7b44b2887549d2e7cd0a9f1"
+  version = "v1.2.1"
+
+[[projects]]
+  digest = "1:a2682518d905d662d984ef9959984ef87cecb777d379bfa9d9fe40e78069b3e4"
+  name = "github.com/PuerkitoBio/purell"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "44968752391892e1b0d0b821ee79e9a85fa13049"
+  version = "v1.1.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:c739832d67eb1e9cc478a19cc1a1ccd78df0397bf8a32978b759152e205f644b"
+  name = "github.com/PuerkitoBio/urlesc"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "de5bf2ad457846296e2031421a34e2568e304e35"
+
+[[projects]]
+  branch = "master"
+  digest = "1:125f098c5294814b5d9ce2194f03a435c35a6208f029e61681bed9a893d68133"
+  name = "github.com/alecthomas/template"
+  packages = [
+    ".",
+    "parse",
+  ]
+  pruneopts = "UT"
+  revision = "fb15b899a75114aa79cc930e33c46b577cc664b1"
+
+[[projects]]
   digest = "1:8efc80bf88d71e42990777999788b0d8aeb685fd77e8c6315d0962e0fc9841bc"
   name = "github.com/go-chi/chi"
   packages = ["."]
   pruneopts = "UT"
   revision = "86f9a6e7ce9bf453eaa339b51f88f586edbccbc1"
   version = "v4.1.2"
+
+[[projects]]
+  digest = "1:f9a29f08ff5ae603e82a7f59a9da386c9990844f9bb418d624fd3a8a02c8b242"
+  name = "github.com/go-chi/cors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "9e1bf52b235ac2a7f9109b93d2012bc88336b4ac"
+  version = "v1.1.1"
+
+[[projects]]
+  digest = "1:5e7a33ced74ca175463d277fdae4a674d1aef4e5e3934f27d8d707df4fb6d0fc"
+  name = "github.com/go-kit/kit"
+  packages = [
+    "endpoint",
+    "log",
+    "transport",
+    "transport/http",
+  ]
+  pruneopts = "UT"
+  revision = "cc938d52e0cdf4c811ab203f428fcd06f9d9a148"
+  version = "v0.10.0"
+
+[[projects]]
+  digest = "1:522a207de5459ab329732b5df6bb6dd7592da9fddf8a99e9f82609e370d82f9b"
+  name = "github.com/go-logfmt/logfmt"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "3be5f6aae7db841d31dc5e1b3bb7b4cff19200b3"
+  version = "v0.5.0"
+
+[[projects]]
+  digest = "1:ed15647db08b6d63666bf9755d337725960c302bbfa5e23754b4b915a4797e42"
+  name = "github.com/go-openapi/jsonpointer"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ed123515f087412cd7ef02e49b0b0a5e6a79a360"
+  version = "v0.19.3"
+
+[[projects]]
+  digest = "1:733657f8a37d017ad3aac774c3583219aa43da894e938cf541a1598bc1d385c8"
+  name = "github.com/go-openapi/jsonreference"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "7775307885f903b5e6808c24d81ead7eb136915f"
+  version = "v0.19.4"
+
+[[projects]]
+  digest = "1:743e75bf64a34deb8b4bd7c6438072a48ab84319c7821c164a3f1da553c90990"
+  name = "github.com/go-openapi/spec"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "e7bc266bd09139be98b222b2ef8fbca0ffdb933d"
+  version = "v0.19.9"
+
+[[projects]]
+  digest = "1:8fa3468c21b1ba90a0ce61450f7ee4f6907a6e03dd8750786a08a67b554bfc79"
+  name = "github.com/go-openapi/swag"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ab98f8e6456407f6afd63e441c5304d6ef60cb7f"
+  version = "v0.19.9"
 
 [[projects]]
   digest = "1:a3af33fd30536d9c5a7b6ad542390919e57c1125097a194c7b3d9904109a0611"
@@ -17,12 +113,113 @@
   revision = "17ef3dd9d98b69acec3e85878995ada9533a9370"
   version = "v1.5.0"
 
+[[projects]]
+  digest = "1:7bbccd3dd7998f2a180264ec1d12e362ed8e02f55ea7b82ac0d0f48ffa2d8888"
+  name = "github.com/mailru/easyjson"
+  packages = [
+    "buffer",
+    "jlexer",
+    "jwriter",
+  ]
+  pruneopts = "UT"
+  revision = "8edcc4e51f39ddbd3505a3386aff3f435a7fd028"
+  version = "v0.7.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:352542e124c4ac4872542f4e5226d6648ba42a037e7bf6656fb1627e37ae059b"
+  name = "github.com/swaggo/files"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "630677cd5c140664e2ff6b53e75c289877268c69"
+
+[[projects]]
+  branch = "master"
+  digest = "1:bf200802f89cf1a054fc7f0ab94b9b62f939ac2b03b01cffb8bda391340d96e8"
+  name = "github.com/swaggo/http-swagger"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "58ac5e232fbadc57a0ff634710a10360847212ca"
+
+[[projects]]
+  digest = "1:a5713772cd84eb7342e9b7d402783050258b3c5a8755fcbd4c6e36fdcedeb0a4"
+  name = "github.com/swaggo/swag"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "df209afeed2334a97c83aff34ea7abcad85c31f6"
+  version = "v1.6.7"
+
+[[projects]]
+  branch = "master"
+  digest = "1:1e39a6f30571e80c6258afe44732b48182d2125f97b0173fe2436b8fe6e39e84"
+  name = "golang.org/x/net"
+  packages = [
+    "idna",
+    "webdav",
+    "webdav/internal/xml",
+  ]
+  pruneopts = "UT"
+  revision = "ab34263943818b32f575efc978a3d24e80b04bd7"
+
+[[projects]]
+  digest = "1:dd87aec186c054a90f96cb78e44d25b23b625c48f22bd79f7a68c7e35aa7caf4"
+  name = "golang.org/x/text"
+  packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
+    "internal/gen",
+    "internal/language",
+    "internal/language/compact",
+    "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
+    "language",
+    "secure/bidirule",
+    "transform",
+    "unicode/bidi",
+    "unicode/cldr",
+    "unicode/norm",
+    "unicode/rangetable",
+    "width",
+  ]
+  pruneopts = "UT"
+  revision = "23ae387dee1f90d29a23c0e87ee0b46038fbed0e"
+  version = "v0.3.3"
+
+[[projects]]
+  branch = "master"
+  digest = "1:6e2cc502091c1a080a4a616653eb09f4fc0ea32c026611783f58dfe806e5c42c"
+  name = "golang.org/x/tools"
+  packages = [
+    "go/ast/astutil",
+    "go/buildutil",
+    "go/internal/cgo",
+    "go/loader",
+  ]
+  pruneopts = "UT"
+  revision = "6123e77877b29a374ef132b5966bfbcb52f1ad82"
+
+[[projects]]
+  digest = "1:d7f1bd887dc650737a421b872ca883059580e9f8314d601f88025df4f4802dce"
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "0b1645d91e851e735d3e23330303ce81f70adbe3"
+  version = "v2.3.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/alecthomas/template",
     "github.com/go-chi/chi",
+    "github.com/go-chi/cors",
+    "github.com/go-kit/kit/endpoint",
+    "github.com/go-kit/kit/transport/http",
     "github.com/go-sql-driver/mysql",
+    "github.com/swaggo/http-swagger",
+    "github.com/swaggo/swag",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
