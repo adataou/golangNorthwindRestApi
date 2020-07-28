@@ -3,8 +3,9 @@ package app
 import (
 	"database/sql"
 	"golangNorthwindRestApi/helper"
-	"golangNorthwindRestApi/product"
-	"golangNorthwindRestApi/user"
+	"golangNorthwindRestApi/mvcRestApi/controllers/ping"
+	"golangNorthwindRestApi/mvcRestApi/controllers/users"
+	"golangNorthwindRestApi/endPointRestApi/product"
 
 	_ "golangNorthwindRestApi/docs"
 
@@ -32,6 +33,10 @@ func mapUrls(databaseConnection *sql.DB) {
 
 func mapUrls_mvc() {
 
-	ginRouter.GET("/ping", user.Ping)
-	ginRouter.POST("/users", user.Create)
+	ginRouter.GET("/ping", ping.Ping)
+	ginRouter.POST("/users", users.Create)
+	ginRouter.GET("/users/:user_id", users.GetUser)
+	ginRouter.PUT("/users/:user_id", users.UpdateUser)
+	ginRouter.DELETE("/users/:user_id", users.DeleteUser)
+	ginRouter.GET("/internal/users/search", users.Search)
 }

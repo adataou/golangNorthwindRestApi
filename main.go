@@ -13,7 +13,7 @@ import (
 // @contact.email support@swagger.io
 
 func main() {
-	//app.StartApplication()
+	app.StartApplication()
 
 	app.StarApplicationMVC()
 }

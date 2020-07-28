@@ -34,5 +34,5 @@ func StarApplicationMVC() {
 	fmt.Println("application MVC")
 	mapUrls_mvc()
 
-	http.ListenAndServe(":3000", ginRouter)
+	http.ListenAndServe(":3001", ginRouter)
 }
