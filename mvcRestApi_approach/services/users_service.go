@@ -1,7 +1,7 @@
 package services
 
 import (
-	"golangNorthwindRestApi/mvcRestApi/domain/users"
+	"golangNorthwindRestApi/mvcRestApi_approach/domain/users"
 	"golangNorthwindRestApi/utils/crypto_utils"
 	"golangNorthwindRestApi/utils/date_utils"
 	"golangNorthwindRestApi/utils/rest_errors"
@@ -17,6 +17,7 @@ type usersServiceInterface interface {
 	UpdateUser(isPartial bool, user users.User) (*users.User, rest_errors.RestErr)
 	DeleteUser(userId int64) rest_errors.RestErr
 	SearchUser(status string) (users.Users, rest_errors.RestErr)
+	LoginUser(request users.LoginRequest) (*users.User, rest_errors.RestErr)
 }
 
 type usersService struct{}
@@ -78,4 +79,15 @@ func (s *usersService) DeleteUser(userId int64) rest_errors.RestErr {
 func (s *usersService) SearchUser(status string) (users.Users, rest_errors.RestErr) {
 	user := &users.User{}
 	return user.FindByStatus(status)
+}
+
+func (s *usersService) LoginUser(request users.LoginRequest) (*users.User, rest_errors.RestErr) {
+	dao := &users.User{
+		Email:    request.Email,
+		Password: crypto_utils.GetMd5(request.Password),
+	}
+	if err := dao.FindByEmailAndPassword(); err != nil {
+		return nil, err
+	}
+	return dao, nil
 }

@@ -82,6 +82,28 @@ definitions:
       standardCost:
         type: number
     type: object
+  users.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  users.User:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+    type: object
+  users.Users:
+    items:
+      $ref: '#/definitions/users.User'
+    type: array
 info:
   contact:
     email: support@swagger.io
@@ -92,6 +114,34 @@ info:
   title: Northwind API
   version: "1.0"
 paths:
+  /oauth/access_token:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: Post access_token
+      tags:
+      - Auth
+  /oauth/access_token/{access_token_id}:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: sting
+      summary: Get access_token by Id
+      tags:
+      - Auth
   /products/:
     delete:
       consumes:
@@ -207,4 +257,114 @@ paths:
       summary: List of the  Products
       tags:
       - Product
+  /users:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/users.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Create user
+      tags:
+      - User
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/users.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: update user
+      tags:
+      - User
+  /users//login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/users.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: login user
+      tags:
+      - User
+  /users//search:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Data
+        in: body
+        name: request
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/users.Users'
+      summary: search by status
+      tags:
+      - User
+  /users/{user_id}:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: delete user
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: integer
+      summary: Get user
+      tags:
+      - User
 swagger: "2.0"

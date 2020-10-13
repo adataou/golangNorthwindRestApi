@@ -3,8 +3,10 @@ package users
 import (
 	"errors"
 	"fmt"
-	"golangNorthwindRestApi/mvcRestApi/datasources/mysql/users_db"
+	"golangNorthwindRestApi/datasources/mysql/users_db"
+	"golangNorthwindRestApi/utils/mysql_utils"
 	"golangNorthwindRestApi/utils/rest_errors"
+	"strings"
 )
 
 const (
@@ -104,4 +106,21 @@ func (user *User) FindByStatus(status string) ([]User, rest_errors.RestErr) {
 		return nil, rest_errors.NewNotFoundError(fmt.Sprintf("no users matching status %s", status))
 	}
 	return results, nil
+}
+
+func (user *User) FindByEmailAndPassword() rest_errors.RestErr {
+	stmt, err := users_db.Client.Prepare(queryFindByEmailAndPassword)
+	if err != nil {
+		return rest_errors.NewInternalServerError("error when tying to find user", errors.New("database error"))
+	}
+	defer stmt.Close()
+
+	result := stmt.QueryRow(user.Email, user.Password, StatusActive)
+	if getErr := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated, &user.Status); getErr != nil {
+		if strings.Contains(getErr.Error(), mysql_utils.ErrorNoRows) {
+			return rest_errors.NewNotFoundError("invalid user credentials")
+		}
+		return rest_errors.NewInternalServerError("error when tying to find user", errors.New("database error"))
+	}
+	return nil
 }
